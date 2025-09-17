@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'fusion',
-        'USER': '',
-        'PASSWORD': '',
+        'USER': 'devuser',
+        'PASSWORD': 'Development@123',
         'HOST': 'localhost',
         'PORT': '5432'
     }
@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'Europe/Lisboa'
+TIME_ZONE = 'Europe/Lisbon'
 
 USE_I18N = True
 

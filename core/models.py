@@ -1,6 +1,14 @@
+import uuid
 from django.db import models
 
 from stdimage.models import StdImageField
+
+
+def get_file_path(_instance, filename):
+    ext = filename.split('.')[-1]
+    uuid4_filename = f'{uuid.uuid4()}'
+    return f'{uuid4_filename}.{ext}'
+
 
 class Base(models.Model):
     createdOn = models.DateField('Criação', auto_now_add = True)
@@ -22,7 +30,7 @@ class Service(Base):
     )
 
     name = models.CharField('Serviço', max_length = 100)
-    description = models.CharField('Descrição', max_length = 200)
+    description = models.TextField('Descrição', max_length = 200)
     icon = models.CharField('Icone', max_length = 12, choices = ICON_CHOICES)
 
     class Meta:
@@ -48,7 +56,7 @@ class Employee(Base):
     name = models.CharField('Nome', max_length = 100)
     position = models.ForeignKey('core.Position', verbose_name = 'Position', on_delete = models.CASCADE)
     biography = models.TextField('Biografia', max_length = 200)
-    image = StdImageField('Imagem', upload_to = 'team', variations = {'thumb': {'width': 480, 'height': 480, 'crop': True}})
+    image = StdImageField('Imagem', upload_to = get_file_path, variations = {'thumb': {'width': 480, 'height': 480, 'crop': True}})
     facebook = models.CharField('Facebook', max_length = 100, default = '#')
     twitter = models.CharField('Twitter', max_length = 100, default = '#')
     Instagram = models.CharField('Instagram', max_length = 100, default = '#')

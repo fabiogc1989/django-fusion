@@ -67,3 +67,26 @@ class Employee(Base):
     
     def __str__(self):
         return self.name
+
+
+class Feature(Base):
+    ICON_CHOICES = (
+        ('lni-rocket', 'Foguete'),
+        ('lni-laptop-phone', 'Portátil e telemóvel'),
+        ('lni-cog', 'Engrenagem'),
+        ('lni-leaf', 'Folha da árvore'),
+        ('lni-layers', 'Camadas'),
+        ('lni-layers', 'Camadas')
+    )
+
+    name = models.CharField('Nome', max_length = 100)
+    description = models.TextField('Descrição', max_length = 200)
+    icon = models.CharField('Icone', max_length = 16, choices = ICON_CHOICES)
+
+    class Meta:
+        verbose_name = 'Feature'
+        verbose_name_plural = 'Features'
+
+    def __str__(self):
+        return self.name
+    

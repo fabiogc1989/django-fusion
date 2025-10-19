@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -85,6 +86,14 @@ DATABASES = {
     }
 }
 
+"""
+For production
+
+DATABASES = {
+    'default': dj_database_url.config()
+}
+"""
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -131,6 +140,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Test Email Console
+# Comment when it goes to production
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 """
@@ -143,3 +153,5 @@ EMAIL_USE_TSL = True
 EMAIL_HOST_PASSWORD = 'fusion'
 DEFAULT_FROM_EMAIL = 'contato@fusion.com.br'
 """
+
+LOGOUT_REDIRECT_URL = 'index'

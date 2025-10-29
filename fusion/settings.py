@@ -158,4 +158,4 @@ EMAIL_HOST_PASSWORD = 'fusion'
 DEFAULT_FROM_EMAIL = 'contato@fusion.com.br'
 """
 
-LOGOUT_REDIRECT_URL = 'index'
+# LOGOUT_REDIRECT_URL = 'index'

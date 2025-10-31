@@ -9,6 +9,6 @@ gunicorn==23.0.0
 model-mommy==2.0.0
 packaging==25.0
 pillow==11.3.0
-psycopg2-binary==2.9.10
+psycopg2-binary==2.9.11
 sqlparse==0.5.3
 static3==0.7.0
